@@ -1,0 +1,1 @@
+http-server -a 0.0.0.0 -c-1
