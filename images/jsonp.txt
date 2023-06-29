@@ -1,0 +1,12 @@
+@startuml
+skinparam backgroundColor White
+skinparam defaultFontName MarkForMCNrw
+'skinparam defaultFontSize 17
+skinparam defaultFontColor #141413
+skinparam roundCorner 10
+'scale 1280 width
+业务代码 -> 浏览器: 添加接收数据的函数，动态创建script标签并添加到当前文档中
+浏览器 -> 服务器:加载javascript，发服务端起请求 http://api.example.com/data?callback=processData
+服务器 -> 浏览器:收到请求进行处理并返回回调函数，在回调函数中填充数据。processData({ "name": "John", "age": 30 });
+浏览器 -> 业务代码: 执行这个函数，再次进入业务
+@enduml
