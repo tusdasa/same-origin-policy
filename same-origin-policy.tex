@@ -23,7 +23,7 @@
 %\captionsetup{font={tiny}}
 
 % 配置参考文献
-\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage[hyperref=true,backend=bibtex,sorting=none,backref=true]{biblatex}
 \addbibresource{reference.bib} %BibTeX数据文件及位置
 \setbeamerfont{footnote}{size=\tiny} %调整注脚的文字大小
 %\setbeamertemplate{bibliography item}[text]
@@ -113,7 +113,7 @@
                 http://test.com:81/    & https://test.com:446/api/data  &       是 &       端口不同    \\
             \bottomrule
         \end{tabular}
-        \caption{1-1 不同源明细\footfullcite{https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy}  } 
+        \caption{1-1 不同源明细\footfullcite{Same-origin_policy}  } 
     \end{table}
 \end{frame}
 
