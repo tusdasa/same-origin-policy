@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <title>Api.html</title>
+    <style>
+		#app{
+			margin-top:50px;
+		}
+    </style>
+</head>
+<body>
+<div class="container-fluid" id="app">
+    <div class="row">
+		<div class="col-md-12">
+			<h1>跨域</h1>
+        </div>
+        <div class="col-md-12">
+			 <button type="button" class="btn btn-primary btn-lg" onclick="sendReq()">发送请求</button>
+			<!--  <button type="button" class="btn btn-primary btn-lg" onclick="sendReq">按钮</button> -->
+			 <!-- <button type="button" class="btn btn-primary btn-lg" onclick="sendReq">按钮</button> -->
+        </div>
+		<div class="col-md-12">
+			 
+        </div>
+    </div>
+</div>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/jquery.slim.min.js" type="application/javascript"></script>
+<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/popper.js/1.16.1/umd/popper.min.js" type="application/javascript"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/axios/0.26.0/axios.min.js" type="application/javascript"></script>
+<!-- <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vConsole/3.12.1/vconsole.min.js" type="application/javascript"></script>
+<script type="application/javascript">const vConsole = new VConsole();vConsole.show();</script> -->
+<script type="application/javascript">
+	function sendReq(){
+		axios.get('http://127.0.0.7/cors.php')
+		.then(function (response) {
+			console.log("请求成功");
+			console.log(response);
+		}).catch(function (error) {
+			console.log("请求失败");
+			console.log(error);
+		});
+	}	
+</script>
+</body>
+</html>

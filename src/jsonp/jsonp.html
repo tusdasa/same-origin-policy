@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <title>jsonp.html</title>
+    <style>
+		#app{
+			margin-top:50px;
+		}
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-md-12">
+			<h1>JSONP</h1>
+        </div>
+    </div>
+	<div>
+		<div class="col-md-12">
+			 <button type="button" class="btn btn-primary btn-lg" onclick="sendReq()">触发JSOP请求</button>
+        </div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="show"></div>
+		</div>
+	</div>
+</div>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/jquery.slim.min.js" type="application/javascript"></script>
+<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/popper.js/1.16.1/umd/popper.min.js" type="application/javascript"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/axios/0.26.0/axios.min.js" type="application/javascript"></script>
+<script type="application/javascript">
+	function jsonpCallback(data){
+		 console.log("回调函数被执行了",data);
+		 $("#jsonp").remove();
+		 $("#show").append('<p>请求成功,结果如下:</p>');
+		 $("#show").append('<p><code>'+JSON.stringify(data,4)+'</code></p>');
+	}
+</script>
+<script type="application/javascript">
+	function sendReq(){
+		let jsonpScript = document.createElement("script");
+		jsonpScript.id="jsonp"
+		jsonpScript.src="http://127.0.0.7/json.php?id="+Math.floor((Math.random() * 10))+"&callback=jsonpCallback"
+		document.body.append(jsonpScript)
+	}	
+</script>
+</body>
+</html>
