@@ -26,10 +26,10 @@ local appBuildVersion = headers["x-build-version"]
 
 -- token
 --local token = headers["Authorization"];
-
+--
 local token = ngx.var.arg_token;
 
-
+--[[
 if token then
     if redis:exists(token) == 0 then
 	    ngx.header['Content-Type']="text/html;charset=utf-8"
@@ -42,3 +42,4 @@ else
 	ngx.exit(ngx.HTTP_BAD_REQUEST)
     return
 end
+--]]
