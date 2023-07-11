@@ -1,0 +1,12 @@
+@startuml
+skinparam backgroundColor White
+skinparam defaultFontName MarkForMCNrw
+'skinparam defaultFontSize 17
+skinparam defaultFontColor #141413
+skinparam roundCorner 10
+'scale 1280 width
+业务代码 -> 浏览器: 发起Ajax请求
+浏览器 -> 服务器: 判断是否简单请求？直接发起请求:请求OPTIONS预检服务端响应头,
+服务器 -> 浏览器:收到请求返回响应，如果是OPTIONS请求需要单独响应
+浏览器 -> 业务代码: 不符合CORS策略阻塞请求，在浏览器console抛出错误。
+@enduml

@@ -18,7 +18,8 @@
 			<h1>跨域</h1>
         </div>
         <div class="col-md-12">
-			 <button type="button" class="btn btn-primary btn-lg" onclick="sendReq()">发送请求</button>
+			 <button type="button" class="btn btn-primary btn-lg" onclick="sendReq0()">发送简单请求</button>
+			 <button type="button" class="btn btn-primary btn-lg" onclick="sendReq1()">发送预检请求</button>
 			<!--  <button type="button" class="btn btn-primary btn-lg" onclick="sendReq">按钮</button> -->
 			 <!-- <button type="button" class="btn btn-primary btn-lg" onclick="sendReq">按钮</button> -->
         </div>
@@ -34,7 +35,7 @@
 <!-- <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vConsole/3.12.1/vconsole.min.js" type="application/javascript"></script>
 <script type="application/javascript">const vConsole = new VConsole();vConsole.show();</script> -->
 <script type="application/javascript">
-	function sendReq(){
+	function sendReq0(){
 		axios.get('http://127.0.0.7/cors.php')
 		.then(function (response) {
 			console.log("请求成功");
@@ -43,7 +44,17 @@
 			console.log("请求失败");
 			console.log(error);
 		});
-	}	
+	}
+	function sendReq1(){
+		axios.post('http://127.0.0.7/cors.php',{"name":"myname"})
+		.then(function (response) {
+			console.log("请求成功");
+			console.log(response);
+		}).catch(function (error) {
+			console.log("请求失败");
+			console.log(error);
+		});
+	}
 </script>
 </body>
 </html>
